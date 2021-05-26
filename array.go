@@ -11,4 +11,5 @@ func ArrayFn() {
 	c := make([]int, 0)
 	c = append(b, 2, 4)
 	c[0] = 1 // replace 1 -> 2
+	fmt.Println(">", c)
 }
