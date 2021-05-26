@@ -20,4 +20,10 @@ func DateFn() {
 	fmt.Printf("%T\n", t4)
 	fmt.Println(t4 >= "2025-02-00T00:00:00Z")
 	fmt.Println("2021-02-02T00:00:00Z" >= "2025-01-27T00:00:00Z")
+
+	hour := 5
+	minutes := 10
+	seconds := 0
+	t5 := time.Now().Add(time.Hour*time.Duration(hour) + time.Minute*time.Duration(minutes) + time.Second*time.Duration(seconds))
+	fmt.Println(t5)
 }
