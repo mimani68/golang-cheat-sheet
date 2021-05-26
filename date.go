@@ -15,4 +15,9 @@ func DateFn() {
 	t3, _ := time.Parse(time.RFC3339, "2018-10-17T07:26:33Z")
 	fmt.Println(t3.Year())
 	fmt.Println(t3.Format(time.RFC3339))
+
+	t4 := time.Now().Format(time.RFC3339)
+	fmt.Printf("%T\n", t4)
+	fmt.Println(t4 >= "2025-02-00T00:00:00Z")
+	fmt.Println("2021-02-02T00:00:00Z" >= "2025-01-27T00:00:00Z")
 }
