@@ -7,13 +7,14 @@ import (
 
 func SampleInterface() {
 
-	privateFunc(map[string]string{
-		"id": "id2384569",
-	})
-
-	myData := make(map[string]interface{})
-	myData["Name"] = "Tony"
-	myData["Age"] = 23
+	//
+	// Dynamic Schema
+	// https://medium.com/random-go-tips/dynamic-json-schemas-part-1-8f7d103ace71
+	//
+	var h map[string]interface{}
+	h["name"] = "ali"
+	fmt.Sprintf("%T", h)
+	fmt.Println(h["name"])
 
 	//
 	// map[string]interface{}
@@ -28,6 +29,10 @@ func SampleInterface() {
 	}
 	a["bacon"] = "bad"
 	fmt.Println(a["bacon"])
+
+	myData := make(map[string]interface{})
+	myData["Name"] = "Tony"
+	myData["Age"] = 23
 
 	fmt.Println(map[string]interface{}{
 		"title": "JWT 接口测试",
@@ -46,6 +51,10 @@ func SampleInterface() {
 	var c map[string]interface{}
 	inrec, _ := json.Marshal(b)
 	json.Unmarshal(inrec, &c)
+
+	privateFunc(map[string]string{
+		"id": "id2384569",
+	})
 
 }
 
