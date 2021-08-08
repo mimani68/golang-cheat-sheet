@@ -6,10 +6,6 @@ import (
 
 func main() {
 
-	//
-	// Struct
-	//
-
 	// 1
 	var a struct {
 		Name string
@@ -59,13 +55,13 @@ func main() {
 	fmt.Println(user.token.value)
 
 	//
-	// Dynamic Schema
-	// https://medium.com/random-go-tips/dynamic-json-schemas-part-1-8f7d103ace71
+	// inline struct handeling
 	//
-	var h map[string]interface{}
-	h["name"] = "ali"
-	fmt.Sprintf("%T", h)
-	fmt.Println(h["name"])
+	fmt.Println(struct {
+		Name string
+	}{
+		Name: "mahdi",
+	})
 
 	//
 	// struct + array
