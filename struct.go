@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func StructFunction() {
 
 	// 1
 	var a struct {
@@ -15,44 +15,62 @@ func main() {
 	fmt.Println(a.Name)
 
 	// 2
-	c := struct {
+	b := struct {
 		Name string
 	}{
 		"reza",
 	}
-	fmt.Println(c.Name)
+	fmt.Println(b.Name)
 
 	// 3
-	var d struct {
+	var c struct {
 		Name string
 	}
-	d.Name = "sina"
-	fmt.Println(d.Name)
+	c.Name = "sina"
+	fmt.Println(c.Name)
 
 	// 4
 	type aStruct struct {
 		Name string
 	}
-	var f struct {
+	var d struct {
 		aStruct
 		Family string
 	}
-	f.Name = "salim"
-	f.Family = "moazen"
-	fmt.Println(f.Name)
+	d.Name = "salim"
+	d.Family = "moazen"
+	fmt.Println(d.Name)
 
 	// 5
-	var user struct {
+	var e struct {
 		username string
 		token    struct {
 			value    string
 			expireAt string
 		}
 	}
-	user.username = "ali"
-	user.token.value = "JWT sdfhighf"
-	user.token.expireAt = "2019-10-10T00:00:00"
-	fmt.Println(user.token.value)
+	e.username = "ali"
+	e.token.value = "JWT sdfhighf"
+	e.token.expireAt = "2019-10-10T00:00:00"
+	fmt.Println(e.token.value)
+
+	f := struct {
+		Name    string
+		Account struct {
+			Username string
+			Password string
+		}
+	}{
+		Name: "ali",
+		Account: struct {
+			Username string
+			Password string
+		}{
+			Username: "mimani",
+			Password: "123",
+		},
+	}
+	fmt.Println(f)
 
 	//
 	// inline struct handeling
@@ -66,13 +84,13 @@ func main() {
 	//
 	// struct + array
 	//
-	var e = []struct {
+	var g = []struct {
 		Name string
 	}{
 		{"Gholam"},
 		{"Reza"},
 	}
-	fmt.Println(e[0].Name)
+	fmt.Println(g[0].Name)
 
 	//
 	// struct in function arguments
@@ -80,7 +98,7 @@ func main() {
 	testFn := func(class struct{ Name string }) {
 		fmt.Println(class.Name)
 	}
-	g := struct{ Name string }{"salam"}
-	testFn(g)
+	h := struct{ Name string }{"salam"}
+	testFn(h)
 
 }
