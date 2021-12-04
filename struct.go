@@ -45,9 +45,9 @@ func StructFunction() {
 	var e struct {
 		username string
 		token    struct {
-			value    string
-			expireAt string
-		}
+			value    string `json:"value"`
+			expireAt string `json:"expireAt"`
+		} `json:"form"`
 	}
 	e.username = "ali"
 	e.token.value = "JWT sdfhighf"
