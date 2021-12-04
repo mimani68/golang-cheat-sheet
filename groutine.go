@@ -15,23 +15,22 @@ func worker(done chan bool) {
 
 func main() {
 
-	messages := make(chan string)
+	channel := make(chan string)
 
 	go func() {
-		messages <- "ping"
-		time.Sleep(time.Second)
-		fmt.Println("Finish groutine")
+		time.Sleep(time.Second * time.Duration(3))
+		channel <- "ping"
 	}()
 
-	msg := <-messages
+	msg := <-channel
 	fmt.Println(msg)
 
 	//
 	// Using channel for synchronization
 	//
-	done := make(chan bool, 1)
-	go worker(done)
+	// done := make(chan bool, 1)
+	// go worker(done)
 
-	<-done
+	// <-done
 
 }
