@@ -2,12 +2,11 @@ package main
 
 import "fmt"
 
-func PointerFn() {
-	a := 1
-	fmt.Println(&a)    // 0xc42000e1f8
-	fmt.Println(*(&a)) // 1
+func main() {
 
-	b := struct{ Id string }{Id: "hf94ytgjn"}
-	fmt.Println(&b)    // ${hf94ytgjn}
-	fmt.Println(*(&b)) // {hf94ytgjn}
+	a := "salam"
+	fmt.Println("show value: ", a)                                 // "salam"
+	fmt.Println("show memory addess of varable: ", &a)             // 0xc000010240
+	fmt.Println("find memory address, then return value: ", *(&a)) // "salam"
+
 }
