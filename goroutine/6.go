@@ -1,4 +1,4 @@
-package main
+package goroutine
 
 import (
 	"fmt"
@@ -11,18 +11,18 @@ func main() {
 	// Finder
 	go func(mine [3]string) {
 		for _, item := range mine {
+			time.Sleep(1 * time.Second)
 			oreChan <- item //send
 		}
 	}(theMine)
 
 	// Ore Breaker
-	go func(ch chan string) {
-		for i := 0; i < 3; i++ {
+	for i := 0; i < 3; i++ {
+		go func(ch chan string) {
 			foundOre := <-ch //receive
 			fmt.Println("Miner: Received " + foundOre + " from finder")
-		}
-	}(oreChan)
+		}(oreChan)
+	}
 
-	fmt.Println(<-oreChan)
 	<-time.After(time.Second * 5)
 }
