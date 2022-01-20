@@ -1,8 +1,10 @@
-# Simple golang starter kit
+# Golang Cheat sheet
 
 * Array
 * Struct
 * Interface
 * Map
-* Gorutine
+* Pointer
+* Loop
+* Goroutine
 * Select
