@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	m := make(map[int]*int)
 
@@ -12,7 +14,8 @@ func main() {
 		m[i] = item
 	}
 
-	for _, v := range m {
-		print(*v)
+	for _, a := range m {
+		fmt.Printf("%d - %T - %v\n", *a, a, a) // => 1 - *int - 0xc00001a198
 	}
+
 }
