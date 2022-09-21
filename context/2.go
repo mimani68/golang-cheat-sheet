@@ -15,7 +15,7 @@ func main() {
 	case <-ctx.Done():
 		fmt.Println("Took too long!")
 	}
-	time.Sleep(5 * time.Second)
+	time.Sleep(10 * time.Second)
 }
 
 func addValues(ctx context.Context) context.Context {
@@ -31,6 +31,6 @@ func retrieveValues(ctx context.Context) {
 			value := ctx.Value("key")
 			fmt.Println(value)
 		}
-		time.Sleep(1 * time.Second)
+		time.Sleep(4 * time.Second)
 	}
 }
