@@ -26,4 +26,19 @@ func main() {
 
 	dynamicParameter(2, "salam", "khobi")
 
+	(func(id int, users ...string) {
+		for index := 0; index < len(users); index++ {
+			fmt.Printf("Hello %s \n", users[index])
+		}
+	})(12, "Matt", "Daneil", "Alison")
+
+	//
+	// Callback function
+	//
+	sayHello := func(cb func(message string)) {
+		cb("Hello")
+	}
+	sayHello(func(message string) {
+		fmt.Println(message)
+	})
 }

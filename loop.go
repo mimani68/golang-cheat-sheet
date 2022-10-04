@@ -2,14 +2,13 @@ package main
 
 import (
 	"fmt"
-	. "fmt"
 	"time"
 )
 
 func main() {
 	list := []string{"Ali", "Reza", "Sina"}
 	for index, value := range list {
-		Printf("%d %s \n", index, value)
+		fmt.Printf("%d %s \n", index, value)
 	}
 
 	// Unlimit loop
