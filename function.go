@@ -19,18 +19,24 @@ func main() {
 		fmt.Println(a)
 	}
 
-	// Call function imidiatly
+	//
+	// Call function immediately
+	//
 	func(a string) {
 		fmt.Println(a)
 	}("salam")
 
+	//
+	// Dynamic argument in method
+	//
 	dynamicParameter(2, "salam", "khobi")
 
-	(func(id int, users ...string) {
-		for index := 0; index < len(users); index++ {
-			fmt.Printf("Hello %s \n", users[index])
-		}
-	})(12, "Matt", "Daneil", "Alison")
+	//
+	// Anonymouse function with initial mode
+	//
+	(func(id int) {
+		fmt.Println(id)
+	})(12)
 
 	//
 	// Callback function
