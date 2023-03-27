@@ -6,31 +6,33 @@ import (
 	"time"
 )
 
-// heavy process function
-func fn(ctx context.Context, c chan context.Context) {
-	// ctx1, _ := context.WithTimeout(ctx, 2*time.Second)
-	time.Sleep(1 * time.Second)
-	ctx.Done()
-	c <- ctx
-	// return ctx.Done()
+func operation(ctx context.Context, opsName string) {
+	// We use a similar pattern to the HTTP server
+	// that we saw in the earlier example
+	select {
+	case <-time.After(100 * time.Millisecond):
+		fmt.Printf("[%s] done\n", opsName)
+	case <-ctx.Done():
+		fmt.Printf("[%s] halted\n", opsName)
+	}
 }
 
 func main() {
-	c := make(chan context.Context)
+	// Create a new context
 	ctx := context.Background()
-	context.WithValue(ctx, "rid", "9f44f4ba-f84e-11ec-9c6d-6fc79d5e25bf")
-	go fn(ctx, c)
-	for {
-		time.Sleep(500 * time.Millisecond)
-		select {
-		case <-c:
-			fmt.Println("Context finished using channel")
-		case <-ctx.Done():
-			fmt.Println("Context finished")
-			return
-		default:
-			fmt.Println("-")
-		}
+
+	// Create a new context, with its cancellation function
+	// from the original context
+	ctx, cancel := context.WithCancel(ctx)
+
+	// Run operation one
+	operation(ctx, "operation-one")
+
+	// cancel next operation
+	if true {
+		cancel()
 	}
-	fmt.Println(ctx.Value("rid"))
+
+	// Run operation two
+	operation(ctx, "operation-two")
 }
