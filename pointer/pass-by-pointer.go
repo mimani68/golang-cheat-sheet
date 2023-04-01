@@ -17,6 +17,8 @@ func main() {
 		lastName:  "Kazemi",
 	}
 
+	fmt.Printf("%T\n", person)
+
 	changeName(&person)
 
 	fmt.Println(person)
