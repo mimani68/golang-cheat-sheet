@@ -15,7 +15,7 @@ func dynamicParameter(number int, parametersList ...string) {
 func main() {
 
 	if true {
-		a := app("salam")
+		a := app("Hey")
 		fmt.Println(a)
 	}
 
@@ -24,15 +24,15 @@ func main() {
 	//
 	func(a string) {
 		fmt.Println(a)
-	}("salam")
+	}("Hey")
 
 	//
 	// Dynamic argument in method
 	//
-	dynamicParameter(2, "salam", "khobi")
+	dynamicParameter(2, "Hey", "khobi")
 
 	//
-	// Anonymouse function with initial mode
+	// Anonymous function with initial mode
 	//
 	(func(id int) {
 		fmt.Println(id)
@@ -41,10 +41,11 @@ func main() {
 	//
 	// Callback function
 	//
-	sayHello := func(cb func(message string)) {
-		cb("Hello")
+	sayHello := func(cb func(message string) string) {
+		result := cb("Hello")
+		fmt.Println(result)
 	}
-	sayHello(func(message string) {
-		fmt.Println(message)
+	sayHello(func(message string) string {
+		return "[INFO]" + message
 	})
 }

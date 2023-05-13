@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	ch := make(chan string, 1)
-	sender("salam", ch)
+	sender("Hey", ch)
 	msg := reciver(ch)
 	fmt.Println(msg)
 }

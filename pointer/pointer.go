@@ -4,10 +4,10 @@ import "fmt"
 
 func main() {
 
-	a := "salam"
-	fmt.Println("show value: ", a)                                 // "salam"
+	a := "Hey"
+	fmt.Println("show value: ", a)                                 // "Hey"
 	fmt.Println("show memory addess of varable: ", &a)             // 0xc000010240
-	fmt.Println("find memory address, then return value: ", *(&a)) // "salam"
+	fmt.Println("find memory address, then return value: ", *(&a)) // "Hey"
 
 	b := &struct {
 		Name string

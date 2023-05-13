@@ -107,7 +107,7 @@ func StructFunction() {
 	testFn := func(class struct{ Name string }) {
 		fmt.Println(class.Name)
 	}
-	h := struct{ Name string }{"salam"}
+	h := struct{ Name string }{"Hey"}
 	testFn(h)
 
 }

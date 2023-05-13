@@ -54,7 +54,7 @@ func main() {
 	}
 
 	var h = make([]User, 1) // instantiate and create a User object
-	h[0].Name = "salam"
+	h[0].Name = "Hey"
 	fmt.Printf("%T\n", h)
 	fmt.Println(h[0])
 
