@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 //	Slices, on the other hand, are much more flexible, powerful, and
 //
@@ -29,6 +32,12 @@ func main() {
 	d := make([]int, 0)
 	c = append(d, 2, 4)
 	fmt.Println(d)
+
+	// Another filling array
+	cc := make([]string, 2)
+	for i := range cc {
+		cc[i] = fmt.Sprintf("%d", rand.Intn(100))
+	}
 
 	// Append
 	e := []string{}
