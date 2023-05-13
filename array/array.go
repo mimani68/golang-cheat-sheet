@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
+//	Slices, on the other hand, are much more flexible, powerful, and
 //
-//  Slices, on the other hand, are much more flexible, powerful, and
 // convenient than arrays. Unlike arrays, slices can be resized using
 // the built-in append function. Further, slices are reference types,
 // meaning that they are cheap to assign and can be passed to other
@@ -11,12 +11,10 @@ import "fmt"
 // Lastly, the functions in Go’s standard library all use slices rather than
 // arrays in their public APIs.
 //
-//
 // make([]Type, length, capacity)
 // make([]Type, length)
 // []Type{}
 // []Type{value1, value2, ..., valueN}
-//
 func main() {
 	var a = []int{1, 5, 6, 0, 4}
 	fmt.Println(a)
@@ -37,7 +35,7 @@ func main() {
 	e = append(e, "one")
 	e = append(e, "two")
 
-	// Preappend
+	// Prepend
 	e = append([]string{"zero"}, e...)
 	fmt.Println(e)
 
@@ -49,5 +47,15 @@ func main() {
 	// list of strings
 	g := []string{"ali", "mahdi"}
 	fmt.Println(g[0])
+
+	// List of Type/User
+	type User struct {
+		Name string
+	}
+
+	var h = make([]User, 1) // instantiate and create a User object
+	h[0].Name = "salam"
+	fmt.Printf("%T\n", h)
+	fmt.Println(h[0])
 
 }

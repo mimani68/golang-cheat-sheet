@@ -6,6 +6,15 @@ import (
 
 func StructFunction() {
 
+	// General usage
+	type User struct {
+		Name string
+	}
+	var a0 []User
+	a0 = append(a0, User{Name: "sina"})
+	a0[0].Name = "Alison"
+	fmt.Println(a0)
+
 	// 1
 	var a struct {
 		Name string
@@ -47,7 +56,7 @@ func StructFunction() {
 		token    struct {
 			value    string `json:"value"`
 			expireAt string `json:"expireAt"`
-		} `json:"form"`
+		} `json:"token"`
 	}
 	e.username = "ali"
 	e.token.value = "JWT sdfhighf"

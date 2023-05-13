@@ -2,10 +2,13 @@ package main
 
 import "fmt"
 
-type Armor struct{}
+type Armor struct {
+	Rate int
+}
 
 type Shield struct{}
 
+// Post oop in golang
 type Human struct {
 	Armor
 	Shield
@@ -14,7 +17,7 @@ type Human struct {
 
 func (h *Human) SayHello() {
 	fmt.Println("Hello")
-	fmt.Println(h.Armor.xxxx)
+	fmt.Println(h.Armor.Rate)
 }
 
 func main() {
