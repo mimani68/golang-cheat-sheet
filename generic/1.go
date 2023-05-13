@@ -6,6 +6,7 @@ import (
 )
 
 type CollectionsHolder[T any] struct {
+	// type CollectionsHolder[T User | float32] struct {
 	Value T
 	Time  time.Time
 }
@@ -25,5 +26,7 @@ func main() {
 	fmt.Printf("a: %v\n", a.Value)
 	fmt.Printf("b: %v\n", b.Value)
 	fmt.Printf("c: %v\n", c.Value)
+	fmt.Printf("c: %v\n", c.Value.Name)
 	fmt.Printf("d: %v\n", d.Value)
+	fmt.Printf("d: %v\n", d.Value.Name)
 }
