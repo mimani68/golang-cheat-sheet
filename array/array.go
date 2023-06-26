@@ -33,6 +33,11 @@ func main() {
 	c = append(d, 2, 4)
 	fmt.Println(d)
 
+	// Using new
+	number := new([]int)
+	*number = append(*number, 1, 4, 4, 3)
+	fmt.Println(*number)
+
 	// Another filling array
 	cc := make([]string, 2)
 	for i := range cc {
