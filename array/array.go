@@ -67,6 +67,11 @@ func main() {
 		Name string
 	}
 
+	var brands []string
+	brands = append(brands, "BMW", "HYNDAY", "KOWASAKI", "JET", "BOING")
+	newBrands := append(brands[:2], brands[3:]...)
+	fmt.Println(newBrands)
+
 	var h = make([]User, 1) // instantiate and create a User object
 	h[0].Name = "Hey"
 	fmt.Printf("%T\n", h)
