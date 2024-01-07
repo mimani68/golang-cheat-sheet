@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func DateFn() {
+func main() {
 	t1 := time.Now()
 	fmt.Println(t1.Format(time.RFC3339))
 

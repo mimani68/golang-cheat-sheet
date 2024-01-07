@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 type DivisionError struct {
 	dividend int
@@ -19,5 +22,13 @@ func divide(a, b int) (int, error) {
 }
 
 func main() {
-	fmt.Println(divide(0, 0))
+	result, err := divide(10, 0)
+	if err != nil {
+		log.Println("Error:", err)
+		// Handle the error
+		return
+	}
+	// Use the result
+	fmt.Println("Result:", result)
+
 }

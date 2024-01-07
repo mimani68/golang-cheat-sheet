@@ -11,9 +11,18 @@ func main() {
 		fmt.Printf("%d %s \n", index, value)
 	}
 
-	// Unlimit loop
+	object := map[string]string{"username": "ali224", "age": "15"}
+	for index, value := range object {
+		fmt.Printf("%s %s \n", index, value)
+	}
+
+	for index := range object {
+		fmt.Printf("%s %s\n", index, object[index])
+	}
+
+	// Unlimited loop
 	for {
 		time.Sleep(500 * time.Millisecond)
-		fmt.Println("Unlimit loop")
+		fmt.Println("Unlimited loop")
 	}
 }

@@ -38,7 +38,7 @@ func main() {
 	*number = append(*number, 1, 4, 4, 3)
 	fmt.Println(*number)
 
-	// Another filling array
+	// Filling array with random values
 	cc := make([]string, 2)
 	for i := range cc {
 		cc[i] = fmt.Sprintf("%d", rand.Intn(100))
@@ -58,20 +58,20 @@ func main() {
 	f[0] = 1
 	fmt.Println(f)
 
-	// list of strings
+	// access to item in list of strings
 	g := []string{"ali", "mahdi"}
 	fmt.Println(g[0])
 
-	// List of Type/User
-	type User struct {
-		Name string
-	}
-
+	// Exclude one item in middle of array
 	var brands []string
 	brands = append(brands, "BMW", "HYNDAY", "KOWASAKI", "JET", "BOING")
 	newBrands := append(brands[:2], brands[3:]...)
 	fmt.Println(newBrands)
 
+	// List of Type/User
+	type User struct {
+		Name string
+	}
 	var h = make([]User, 1) // instantiate and create a User object
 	h[0].Name = "Hey"
 	fmt.Printf("%T\n", h)
