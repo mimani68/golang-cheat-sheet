@@ -58,11 +58,12 @@ func main() {
 	f[0] = 1
 	fmt.Println(f)
 
-	// access to item in list of strings
+	// Access to item in list of strings
 	g := []string{"ali", "mahdi"}
 	fmt.Println(g[0])
 
 	// Exclude one item in middle of array
+	// Remove an item from list
 	var brands []string
 	brands = append(brands, "BMW", "HYNDAY", "KOWASAKI", "JET", "BOING")
 	newBrands := append(brands[:2], brands[3:]...)
