@@ -25,6 +25,7 @@ func main() {
 	// from the original context
 	ctx, cancel := context.WithCancel(ctx)
 
+
 	// Run operation one
 	operation(ctx, "operation-one")
 

@@ -5,24 +5,18 @@ import (
 	"time"
 )
 
-func worker(done chan bool) {
-	fmt.Print("working...")
-	time.Sleep(time.Second)
-	fmt.Println("done")
+func main() {
+	heroes := []string{"Marvel", "Flash", "Thanos", "Eagle", "Hulk", "Thor"}
+	spaceships := []string{"Battlecruiser", "Battleship", "Cruiseship", "Her Majesty's Ship", "Imperial Spaceship"}
+	go externalAPI(heroes, "hero")
+	go externalAPI(spaceships, "spaceship")
 
-	done <- true
+	<-time.After(time.Second * 10)
 }
 
-func main() {
-
-	channel := make(chan string)
-
-	go func() {
-		time.Sleep(time.Second * time.Duration(3))
-		channel <- "ping"
-	}()
-
-	msg := <-channel
-	fmt.Println(msg)
-
+func externalAPI(items []string, label string) {
+	for i := range items {
+		fmt.Printf("%s: %s\n", label, items[i])
+		time.Sleep(time.Second)
+	}
 }
