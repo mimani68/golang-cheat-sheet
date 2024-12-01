@@ -1,0 +1,28 @@
+package main
+import (
+  "fmt"
+  "strings"
+)
+
+func WordSplit(strArr []string) string {
+  result := ""
+  word := strArr[0]
+  dicString := strArr[1]
+  dic := strings.Split(string(dicString), ",")
+  for _, tokenOne := range dic {
+    for _, tokenTwo := range dic {
+      if tokenOne+tokenTwo == word {
+        result = tokenOne+","+tokenTwo
+      }
+    }
+  }
+  return result;
+}
+
+func main() {
+
+  // do not modify below here, readline is our function
+  // that properly reads in the input for you
+  fmt.Println(WordSplit(readline()))
+
+}

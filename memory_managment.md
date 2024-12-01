@@ -1,0 +1,1 @@
+It's important to note that Go takes responsibility for arranging the storage of values, and in most cases, developers do not need to explicitly manage memory allocation or deallocation. The Go garbage collector handles memory management automatically .
