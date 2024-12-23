@@ -20,47 +20,48 @@ import (
 // []Type{value1, value2, ..., valueN}
 func main() {
 	var a = []int{1, 5, 6, 0, 4}
-	fmt.Println(a)
+	fmt.Printf("a) Array: %v, Length: %d, Capacity: %d\n", a, len(a), cap(a))
 
 	var b []int
-	fmt.Println(b)
+	fmt.Printf("b) Array: %v, Length: %d, Capacity: %d\n", b, len(b), cap(b))
 
 	c := []int{}
 	fmt.Println(c)
 
 	// Using make()
 	d := make([]int, 0)
-	c = append(d, 2, 4)
-	fmt.Println(d)
+	e := append(d, 2, 4)
+	fmt.Printf("d) Array: %v, Length: %d, Capacity: %d\n", d, len(d), cap(d))
+	fmt.Printf("e) Array: %v, Length: %d, Capacity: %d\n", e, len(e), cap(e))
 
 	// Using new
-	number := new([]int)
-	*number = append(*number, 1, 4, 4, 3)
-	fmt.Println(*number)
+	f := new([]int)
+	*f = append(*f, 1, 4, 4, 3)
+	fmt.Printf("f) Array: %v, Length: %d, Capacity: %d\n", f, len(*f), cap(*f))
 
 	// Filling array with random values
-	cc := make([]string, 2)
-	for i := range cc {
-		cc[i] = fmt.Sprintf("%d", rand.Intn(100))
+	g := make([]string, 2)
+	for i := range g {
+		g[i] = fmt.Sprintf("%d", rand.Intn(100))
 	}
 
 	// Append
-	e := []string{}
-	e = append(e, "one")
-	e = append(e, "two")
+	h := []string{}
+	h = append(h, "one")
+	h = append(h, "two")
 
 	// Prepend
-	e = append([]string{"zero"}, e...)
-	fmt.Println(e)
+	i := append([]string{"zero"}, h...)
+	fmt.Println(i)
 
 	// Replace
-	f := []int{3}
-	f[0] = 1
-	fmt.Println(f)
+	j := []int{3}
+	j[0] = 1
+	fmt.Println(j)
 
 	// Access to item in list of strings
-	g := []string{"ali", "mahdi"}
-	fmt.Println(g[0])
+	k := []string{"ali", "mahdi"}
+	fmt.Println(k[0])
 
 	// Exclude one item in middle of array
 	// Remove an item from list
@@ -73,9 +74,9 @@ func main() {
 	type User struct {
 		Name string
 	}
-	var h = make([]User, 1) // instantiate and create a User object
-	h[0].Name = "Hey"
-	fmt.Printf("%T\n", h)
-	fmt.Println(h[0])
+	var user = make([]User, 1) // instantiate and create a User object
+	user[0].Name = "Hey"
+	fmt.Printf("%T\n", user)
+	fmt.Println(user[0])
 
 }
