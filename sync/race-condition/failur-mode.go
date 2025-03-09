@@ -2,22 +2,19 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"time"
 )
 
 var x = 0
 
-func increment(wg *sync.WaitGroup) {
+func increment() {
 	x = x + 1
-	wg.Done()
 }
 
 func main() {
-	var w sync.WaitGroup
 	for i := 0; i < 1000; i++ {
-		w.Add(1)
-		go increment(&w)
+		go increment()
 	}
-	w.Wait()
+	time.Sleep(time.Second * 3)
 	fmt.Println("final value of x", x)
 }
