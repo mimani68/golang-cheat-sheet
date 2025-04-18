@@ -29,6 +29,7 @@ func Application(list []interface{}) {
 	}
 	list = append(list, userThree)
 
+	fmt.Println(list)
 	fmt.Println(list...)
 
 	printInterfaceName(list)
