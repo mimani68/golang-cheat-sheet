@@ -82,7 +82,7 @@ func StructFunction() {
 	fmt.Println(f)
 
 	//
-	// inline struct handeling
+	// inline struct handling
 	//
 	fmt.Println(struct {
 		Name string
