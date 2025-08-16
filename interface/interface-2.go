@@ -5,37 +5,32 @@ import "fmt"
 var key = "name"
 
 func main() {
-	list := []interface{}{"first"}
-	list = append(list, string("second"))
+	class := []interface{}{"first"}
+	class = append(class, string("second"))
+	fmt.Println(class)
 
-	Application(list)
-}
+	userOne := map[string]interface{}{}
+	userOne[key] = "ali"
+	class = append(class, userOne)
+	fmt.Println(class)
 
-func Application(list []interface{}) {
-	user := map[string]interface{}{}
-	user[key] = "ali"
-	list = append(list, user)
-
-	userTwo := map[string]interface{}{}
-	userTwo[key] = "sajad"
-	list = append(list, userTwo)
-
-	userThree := struct {
+	userTwo := struct {
 		Name   string
 		Family string
 	}{
 		Name:   "Mahdi",
 		Family: "Imani",
 	}
-	list = append(list, userThree)
+	class = append(class, userTwo)
+	fmt.Println(class)
 
-	fmt.Println(list)
-	fmt.Println(list...)
-
-	printInterfaceName(list)
+	printInterfaceName(class)
 }
 
+// func printInterfaceName(list ...interface{}) {
 func printInterfaceName(list []interface{}) {
+	fmt.Println(list[1])
+	fmt.Println(list...)
 	for index, _ := range list {
 		fmt.Println(list[index])
 	}
