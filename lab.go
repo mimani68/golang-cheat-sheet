@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	a := 3.15
-	fmt.Printf("%d\n", a)
+	fmt.Printf("fmt.Sprintf(42, a): \"42 \" (%T)", fmt.Sprintf("%s", 42))
 }
