@@ -179,6 +179,7 @@ with newlines` // raw string literal
 
 	// Numbers to string
 	fmt.Printf("strconv.Itoa(42): %q\n", strconv.Itoa(42))
+	fmt.Printf("fmt.Sprintf(42, a): \"42\" (%T)", fmt.Sprintf("%s", 42))
 	fmt.Printf("strconv.FormatFloat(3.14159, 'f', 2, 64): %q\n",
 		strconv.FormatFloat(3.14159, 'f', 2, 64))
 	fmt.Printf("strconv.FormatBool(true): %q\n", strconv.FormatBool(true))
