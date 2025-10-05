@@ -56,11 +56,16 @@ func main() {
 	var m map[string]int = map[string]int{"a": 1, "b": 2, "c": 3}
 	fmt.Println("Map:", m)
 
+	var n map[string]interface{} = map[string]interface{}{"a": 1, "b": [3]string{"a", "b", "c"}, "c": []byte("salam")}
+	fmt.Println("Map:", n)
+
 	// Struct type
 	type Person struct {
-		Name string
-		Age  int
+		Name string // exported – visible to other packages
+		Age  int    // exported – visible to other packages
+		male bool   // unexported – only usable within the same package
 	}
-	var p Person = Person{Name: "Alice", Age: 30}
+	var p Person = Person{Name: "Alice", Age: 30, male: true}
 	fmt.Println("Struct:", p)
+	fmt.Println("Struct:", p.male)
 }

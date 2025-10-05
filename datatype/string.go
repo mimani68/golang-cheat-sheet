@@ -166,6 +166,7 @@ with newlines` // raw string literal
 	// String to numbers
 	intStr := "42"
 	intVal, err := strconv.Atoi(intStr)
+	// intVal, err := strconv.ParseInt(a, 10, 64)  // Alternative
 	fmt.Printf("strconv.Atoi(%q): %d, error: %v\n", intStr, intVal, err)
 
 	floatStr := "3.14159"
@@ -296,3 +297,123 @@ with newlines` // raw string literal
 	encoded := strings.Map(rot13, "Hello, World!")
 	fmt.Printf("ROT13 encoded: %q\n", encoded)
 }
+
+// === GO STRING CHEAT SHEET ===
+
+// 1. STRING BASICS
+// ================
+// s1: "" (len: 0)
+// s2: "Hello, World!"
+// s3: "Raw string literal\nwith newlines"
+// s4: "Hello World"
+
+// 2. STRING INDEXING AND SLICING
+// ==============================
+// String: "Hello, 世界"
+// len(str): 13 bytes
+// utf8.RuneCountInString(str): 9 runes
+// str[0]: H (byte: 72)
+// str[7]: ä (byte: 228)
+// Runes: [0]=H [1]=e [2]=l [3]=l [4]=o [5]=, [6]=  [7]=世 [10]=界
+// str[0:5]: "Hello"
+// str[7:]: "世界"
+
+// 3. STRING COMPARISON
+// ====================
+// "apple" == "banana": false
+// "apple" < "banana": true
+// "apple" > "banana": false
+// strings.EqualFold("GoLang", "golang"): true
+
+// 4. STRINGS PACKAGE FUNCTIONS
+// ============================
+// strings.TrimSpace("  Go is awesome!  "): "Go is awesome!"
+// strings.Trim("  Go is awesome!  ", " !"): "Go is awesome"
+// strings.TrimPrefix("Hello, World", "Hello"): ", World"
+// strings.TrimSuffix("Hello.txt", ".txt"): "Hello"
+// strings.ToUpper("hello"): "HELLO"
+// strings.ToLower("HELLO"): "hello"
+// strings.Title("hello world"): "Hello World"
+// strings.Contains("The quick brown fox jumps over the lazy dog", "fox"): true
+// strings.HasPrefix("The quick brown fox jumps over the lazy dog", "The"): true
+// strings.HasSuffix("The quick brown fox jumps over the lazy dog", "dog"): true
+// strings.Index("The quick brown fox jumps over the lazy dog", "fox"): 16
+// strings.LastIndex("The quick brown fox jumps over the lazy dog", "o"): 41
+// strings.Count("The quick brown fox jumps over the lazy dog", "o"): 4
+// strings.Split("a,b,c,d", ","): [a b c d]
+// strings.Join(parts, "-"): "a-b-c-d"
+// strings.Fields("  multiple   spaces   between   words  "): [multiple spaces between words]
+// strings.Replace("foo bar foo", "foo", "baz", 1): "baz bar foo"
+// strings.ReplaceAll("foo bar foo", "foo", "baz"): "baz bar baz"
+
+// 5. STRING BUILDER
+// =================
+// Builder result:
+// Line 0
+// Line 1
+// Line 2
+// Line 3
+// Line 4
+
+// 6. BYTE OPERATIONS
+// ==================
+// []byte("Hello, 世界"): [72 101 108 108 111 44 32 228 184 150 231 149 140]
+// string(byteSlice): "Hello, 世界"
+// bytes.Equal([]byte("abc"), []byte("abc")): true
+// bytes.Contains([]byte("seafood"), []byte("foo")): true
+
+// 7. UNICODE OPERATIONS
+// =====================
+// []rune("Hello, 世界! 123"): [72 101 108 108 111 44 32 19990 30028 33 32 49 50 51]
+// string(runes[7:9]): "世界"
+// 'H': Letter=true, Digit=false, Space=false, Punct=false
+// 'e': Letter=true, Digit=false, Space=false, Punct=false
+// 'l': Letter=true, Digit=false, Space=false, Punct=false
+// 'l': Letter=true, Digit=false, Space=false, Punct=false
+// 'o': Letter=true, Digit=false, Space=false, Punct=false
+// '1': Letter=false, Digit=true, Space=false, Punct=false
+// '2': Letter=false, Digit=true, Space=false, Punct=false
+// '3': Letter=false, Digit=true, Space=false, Punct=false
+// '!': Letter=false, Digit=false, Space=false, Punct=true
+// '世': Letter=true, Digit=false, Space=false, Punct=false
+// '界': Letter=true, Digit=false, Space=false, Punct=false
+
+// 8. STRING CONVERSION
+// ====================
+// strconv.Atoi("42"): 42, error: <nil>
+// strconv.ParseFloat("3.14159", 64): 3.141590, error: <nil>
+// strconv.ParseBool("true"): true, error: <nil>
+// strconv.Itoa(42): "42"
+// strconv.FormatFloat(3.14159, 'f', 2, 64): "3.14"
+// strconv.FormatBool(true): "true"
+// fmt.Sprintf result: "Name: John, Age: 30, Score: 95.50"
+
+// 9. REGULAR EXPRESSIONS
+// ======================
+// Email matches in "Contact us at info@example.com or support@test.org": [info@example.com support@test.org]
+// After redacting emails: "Contact us at [REDACTED] or [REDACTED]"
+
+// 10. EDGE CASES AND GOTCHAS
+// ==========================
+// Empty string: "", len: 0, == "": true
+// Uninitialized string: "", == "": true, == nilStr: true
+// Emoji string: "Hello 👋 World 🌍"
+// len(emoji): 21 bytes
+// utf8.RuneCountInString(emoji): 15 runes
+// Invalid UTF-8: "\xff\xfe\xfd"
+// utf8.ValidString(invalidUTF8): false
+// str1 == str2: true (both literals)
+// str1 == str3: true (concatenation)
+// Substring "very long " shares memory with original
+
+// 11. PERFORMANCE TIPS
+// ====================
+// Inefficient result: "Item 0, Item 1, Item 2, Item 3, Item 4, "
+// Efficient result: "Item 0, Item 1, Item 2, Item 3, Item 4, "
+// Mutable string operations: "hello"
+
+// 12. ADVANCED STRING OPERATIONS
+// ==============================
+// Custom split result: [a b c d]
+// Read 5 bytes: "Hello"
+// ROT13 encoded: "Uryyb, Jbeyq!"

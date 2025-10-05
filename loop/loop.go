@@ -5,9 +5,8 @@ import (
 )
 
 func main() {
-	list := []string{"Ali", "Reza", "Sina"}
 	fmt.Println("=== List ===")
-	for index, value := range list {
+	for index, value := range []string{"Ali", "Reza", "Sina"} {
 		fmt.Printf("%d %s \n", index, value)
 	}
 
