@@ -35,4 +35,18 @@ func main() {
 	fmt.Printf("%T\n", v3.Y)          // => int
 	fmt.Printf("%T\n", v3.X)          // => int
 
+	var v4 Vertex
+	v4 = Vertex{}
+	v4.X = 10
+	fmt.Printf("%T - %v\n", v4, v4) // => main.Vertex - &{10 0}
+
+	var v5 *Vertex
+	v5 = &Vertex{}
+	v5.X = 9
+	fmt.Printf("%T - %v\n", v5, v5) // => *main.Vertex - &{9 0}
+
+	// var v6 *Vertex
+	// v6.X = 10
+	// fmt.Printf("%T - %v\n", v6, v6) // => panic: runtime error: invalid memory address or nil pointer dereference
+
 }
