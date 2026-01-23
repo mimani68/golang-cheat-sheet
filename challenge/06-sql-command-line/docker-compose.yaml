@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17.6
+    container_name: querybuilder_db
+    environment:
+      POSTGRES_USER: querybuilder
+      POSTGRES_PASSWORD: querybuilder_pass
+      POSTGRES_DB: querybuilder_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    name: querybuilder_postgres_data

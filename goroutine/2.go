@@ -15,6 +15,7 @@ func main() {
 	}(channel)
 
 	fmt.Println(<-channel)
+	close(channel)
 
 	// Output
 	// ping
